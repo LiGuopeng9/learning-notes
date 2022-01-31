@@ -250,6 +250,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 #### 3.7.1.1 基本语法
 
 + git reflog    查看版本信息
++ 
 
 + git log    查看版本详细信息
 
@@ -322,13 +323,13 @@ Git 切换版本，底层其实是移动的HEAD 指针，具体原理如下图�
 
 ![image-20220130220130446](images/image-20220130220130446.png)
 
-### 4.2 分支的好处
+## 4.2 分支的好处
 
 同时并行推进多个功能开发，提高开发效率。
 各个分支在开发过程中，如果某一个分支开发失败，不会对其他分支有任何影响。失败
 的分支删除重新开始即可。
 
-### 4.3 分支的操作
+## 4.3 分支的操作
 
 | 命令名称            | 作用                         |
 | ------------------- | ---------------------------- |
@@ -430,7 +431,17 @@ hello git! hello atguigu! hot-fix test
    $ git commit -m "merge hot-fix"
    [master 69ff88d] merge hot-fix
    --发现后面MERGING 消失，变为正常
-   La
+   
    ```
 
    
+
+## 4.4 分支图解
+
+![image-20220130221130783](images/image-20220130221130783.png)master、hot-fix 其实都是指向具体版本记录的指针。当前所在的分支，其实是由 HEAD决定的。所以创建分支的本质就是多创建一个指针。
+
+HEAD 如果指向 master，那么我们现在就在master 分支上。
+
+HEAD 如果执行 hotfix，那么我们现在就在hotfix 分支上。
+
+所以切换分支的本质就是移动HEAD 指针。
