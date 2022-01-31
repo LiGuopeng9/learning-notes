@@ -445,3 +445,13 @@ HEAD 如果指向 master，那么我们现在就在master 分支上。
 HEAD 如果执行 hotfix，那么我们现在就在hotfix 分支上。
 
 所以切换分支的本质就是移动HEAD 指针。
+
+
+
+
+
+
+
+
+
+# 第 5 章 Git 团队协作机制
