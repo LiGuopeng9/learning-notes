@@ -455,3 +455,158 @@ HEAD 如果执行 hotfix，那么我们现在就在hotfix 分支上。
 
 
 # 第 5 章 Git 团队协作机制
+
+## 5.1 团队内协作
+
+![image-20220131233546424](images/image-20220131233546424.png)
+
+
+
+## 5.2 跨团队协作
+
+![image-20220131233605825](images/image-20220131233605825.png)
+
+
+
+
+
+
+
+# 第6章 GitHub操作
+
+GitHub网 址 https://github.com/
+Ps:全球最大同性交友网站 技术宅男的天堂 新世界的大门 你还在等什么 ?
+
+## 6.1 创建远程仓库
+
+![image-20220131233711010](images/image-20220131233711010.png)
+
+![image-20220131233722978](images/image-20220131233722978.png)
+
+
+
+
+
+## 6.2 远程仓库操作
+
+| 命令名称                           | 作用                                                      |
+| ---------------------------------- | --------------------------------------------------------- |
+| git remote -v                      | 查看当前所有远程地址别名                                  |
+| git remote add 别名 远程地址       | 起别名                                                    |
+| git push 别名 分支                 | 推送本地分支上的内容到远程仓库                            |
+| git clone 远程地址                 | 将远程仓库的内容克隆到本地                                |
+| git pull 远程库地址别名 远程分支名 | 将远程仓库对于 分支最新内容拉下来后与当前本地分支直接合并 |
+
+### 6.2.1 创建远程仓库别名
+
+#### 6.2.1.1 基本语法
+
+git remote -v 查看当前所有远程地址别名
+
+git remote add 别名 远程地址
+
+#### 6.2.1.2 案例实操
+
+```
+Layne@LAPTOP-Layne MINGW64 /d/Git-Space/SH0720 (master)
+$ git remote -v
+Layne@LAPTOP-Layne MINGW64 /d/Git-Space/SH0720 (master)
+$ git remote add ori https://github.com/atguiguyueyue/git-shTest.git
+
+Layne@LAPTOP-Layne MINGW64 /d/Git-Space/SH0720 (master)
+$ git remote -v
+ori    https://github.com/atguiguyueyue/git-shTest.git (fetch) ori    
+https://github.com/atguiguyueyue/git-shTest.git (push)
+
+```
+
+![image-20220201215107368](images/image-20220201215107368.png)
+
+
+
+
+
+### 6.2.2 推送本地分支到远程仓库
+
+#### 6.2.2.1 基本语法
+
+git push 别名 分支
+
+#### 6.2.2.2 案例实操
+
+```bash
+Layne@LAPTOP-Layne MINGW64 /d/Git-Space/SH0720 (master)
+$ git push ori master
+Logon failed, use ctrl+c to cancel basic credential prompt. Username for 'https://github.com': 
+atguiguyueyue
+Counting objects: 3, done.
+Delta compression using up to 12 threads. Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 276 bytes | 276.00 KiB/s, done. Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/atguiguyueyue/git-shTest.git
+ * [new branch] master --> master
+
+```
+
+此时发现已将我们master分支上的内容推送到 GitHub创建的远程仓库 。
+
+### 6.2.3 克隆远程仓库到本地
+
+#### 6.2.3.1 基本语法
+
+git clone 远程地址
+
+#### 6.2.3.2 案例实操
+
+```bash
+Layne@LAPTOP-Layne MINGW64 /d/Git-Space/pro-linghuchong
+$ git clone https://github.com/atguiguyueyue/git-shTest.git
+Cloning into 'git-shTest'...
+remote: Enumerating objects: 3, done. remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+
+```
+
+```bash
+创建远程仓库别名
+Layne@LAPTOP Layne MINGW64 /d Git Space/pro linghuchong/git shTest(master)
+$ git remote v
+origin https://github.com/atguiguyueyue/git shTest.git (fetch)
+origin https://github.com/atguiguyueyue/git shTest.git (push)
+```
+
+### 6.2.5 拉取远程仓库
+
+#### 6.2.5.1 基本语法
+
+git pull 远程库地址别名 远程分支名
+
+6.2.5.2 案例实操
+
+```bash
+--将远程仓库对于分支最新内容拉下来后与当前本地分支直接合并
+Layne@LAPTOP-Layne MINGW64 /d/Git-Space/SH0720 (master)
+$ git pull ori master
+remote: Enumerating objects: 5, done. remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0 Unpacking objects: 100% (3/3), done.
+From https://github.com/atguiguyueyue/git-shTest
+* branch          master    -> FETCH_HEAD 7cb4d02..5dabe6b  master    -> ori/master
+Updating 7cb4d02..5dabe6b Fast-forward
+hello.txt | 2 +-
+1 file changed, 1 insertion(+), 1 deletion(-) Layne@LAPTOP-Layne MINGW64 /d/Git-Space/SH0720 
+(master)
+$ cat hello.txt
+hello git! hello atguigu! 2222222222222 hello git! hello atguigu! 33333333333333 hello git! hello 
+atguigu!
+hello git! hello atguigu!
+hello git! hello atguigu! 我是最帅的，比岳不群还帅
+hello git! hello atguigu! hello git! hello atguigu! hello git! hello atguigu! hello git! hello 
+atguigu! hello git! hello atguigu! hello git! hello atguigu! hello git! hello atguigu! hello git! 
+hello atguigu! hello git! hello atguigu!
+hello git! hello atguigu! master test
+hello git! hello atguigu! hot-fix test
+
+```
+
